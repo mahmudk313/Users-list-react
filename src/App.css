@@ -4,5 +4,10 @@
   box-sizing: border-box;
 }
 main {
-  background-image: url(img/wallpapersden.com_huawei-4k-stock-abstract_3840x2160.jpg);
+  background-image:  url(img/wallpapersden.com_huawei-4k-stock-abstract_3840x2160.jpg);
+  background-position:center ;
+  background-size: cover;
+  width: 100%;
+  min-height: 635px;
+  max-height: 100%;
 }
