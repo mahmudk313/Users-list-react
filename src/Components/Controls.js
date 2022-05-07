@@ -4,10 +4,10 @@ function Controls() {
 
 
     return (
-        <div>
-            <button className="sq-btn"></button>
-            <button className="sq-btn"></button>
-            <button className="sq-btn"></button>
+        <div className="controls">
+            <button type="button" className="add-btn sq-btn"></button>
+            <button type="button" className="edit-btn sq-btn"></button>
+            <button type="button" className="list-btn sq-btn"></button>
         </div>
     )
 }
