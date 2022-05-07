@@ -3,7 +3,9 @@ import Controls from './Components/Controls';
 
 function App() {
   return (
-    
+    <main>
+      <Controls />
+    </main>
   );
 }
 
