@@ -10,7 +10,7 @@ import AddBox from './Components/AddBox'
 function App() {
 
   const [addStatus, setAddStatus] = useState(false);
-  const [userState, setUserState] = useState({
+  const [usersState, setUsersState] = useState({
     users : [
         // State.users Props
         // {
@@ -29,19 +29,23 @@ function App() {
 
   //state changes here and get the props from AddBox component
   let addUser = (user) => {
-    setUserState(prevState => {
+    setUsersState(prevState => {
+      console.log(user)
       return {
-        ...prevState,
-        users : {
-          name : user.name,
-          lastName : user.lastName,
-          permission : user.permission,
-          birthDate : user.birthDate,
-          email : user.email,
-          id : user.id,
-          skill : user.skill,
-          detail : user.detail
-        }
+        users : [
+          ...prevState.users,
+          {
+            name : user.name,
+            lastName : user.lastName,
+            permission : user.permission,
+            birthDate : user.birthDate,
+            email : user.email,
+            id : user.id,
+            skill : user.skill,
+            detail : user.detail,
+            key : Date.now()
+          }
+        ]
       }
     })
   }
@@ -56,7 +60,7 @@ function App() {
     <main> 
       <div className={addStatus?"blur":""}>
         <Controls addStatus={addStatusToggle} />
-        <ListShow state={userState} />
+        <ListShow state={usersState} />
 
       </div>
       {
