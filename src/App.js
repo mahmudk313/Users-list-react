@@ -29,16 +29,19 @@ function App() {
 
   //state changes here and get the props from AddBox component
   let addUser = (user) => {
-    setUserState({
-      users : {
-        name : user.name,
-        lastName : user.lastName,
-        permission : user.permission,
-        joinDate : user.joinDate,
-        email : user.email,
-        id : user.id,
-        skill : user.skill,
-        detail : user.detail
+    setUserState(prevState => {
+      return {
+        ...prevState,
+        users : {
+          name : user.name,
+          lastName : user.lastName,
+          permission : user.permission,
+          joinDate : user.joinDate,
+          email : user.email,
+          id : user.id,
+          skill : user.skill,
+          detail : user.detail
+        }
       }
     })
   }
