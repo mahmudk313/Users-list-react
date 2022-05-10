@@ -5,6 +5,7 @@ import './App.css';
 //import components
 import Controls from './Components/Controls';
 import ListShow from './Components/ListShow';
+import AddBox from './Components/AddBox'
 
 function App() {
 
@@ -42,8 +43,15 @@ function App() {
     })
   }
 
+  //changes the addStatus, get value from Controls component -> add Button
+  let addStatusToggle = status => {
+    setAddStatus(status)
+  }
+
+
   return (
     <main> 
+      <Controls addStatus={addStatusToggle} />
       <ListShow state={userState} />
       {
     </main>
