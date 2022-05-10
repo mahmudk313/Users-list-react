@@ -36,7 +36,7 @@ function App() {
           name : user.name,
           lastName : user.lastName,
           permission : user.permission,
-          joinDate : user.joinDate,
+          birthDate : user.birthDate,
           email : user.email,
           id : user.id,
           skill : user.skill,
@@ -54,8 +54,11 @@ function App() {
 
   return (
     <main> 
-      <Controls addStatus={addStatusToggle} />
-      <ListShow state={userState} />
+      <div className={addStatus?"blur":""}>
+        <Controls addStatus={addStatusToggle} />
+        <ListShow state={userState} />
+
+      </div>
       {
         addStatus
         ? <AddBox add={addUser} />
