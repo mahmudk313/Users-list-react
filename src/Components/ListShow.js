@@ -6,7 +6,7 @@ import Users from "./Users";
 
 function ListShow(props) {
     //satate defined in app.js component so we have access to it from the props
-    let {state} = props
+    let {state} = props;
 
 
     return(

@@ -9,7 +9,7 @@ import ListShow from './Components/ListShow';
 function App() {
 
   const [addStatus, setAddStatus] = useState(false);
-  const [state, setState] = useState({
+  const [userState, setUserState] = useState({
     users : [
         // State.users Props
         // {
@@ -26,9 +26,25 @@ function App() {
   });
 
 
+  //state changes here and get the props from AddBox component
+  let addUser = (user) => {
+    setUserState({
+      users : {
+        name : user.name,
+        lastName : user.lastName,
+        permission : user.permission,
+        joinDate : user.joinDate,
+        email : user.email,
+        id : user.id,
+        skill : user.skill,
+        detail : user.detail
+      }
+    })
+  }
+
   return (
     <main> 
-      <ListShow state={state} />
+      <ListShow state={userState} />
       {
     </main>
   );
