@@ -38,6 +38,11 @@ function ListShow() {
                         <th>توضیحات</th>
                     </tr>
                     
+                    {
+                        state.users.length === 0 
+                            ? <h2>کاربری اضافه نشده است!</h2>
+                            : state.users.map(item => <Users key={item.id} usersList={item} /> )
+                    }
                 </tbody>
             </table>
         </div>
