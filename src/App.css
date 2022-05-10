@@ -1,7 +1,12 @@
+@font-face {
+  font-family: iransans;
+  src: url(font/FontsFree-Net-ir_sans.ttf);
+}
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: iransans;
 }
 main {
   background-image:  url(img/wallpapersden.com_huawei-4k-stock-abstract_3840x2160.jpg);
