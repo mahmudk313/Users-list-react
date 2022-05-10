@@ -54,6 +54,10 @@ function App() {
       <Controls addStatus={addStatusToggle} />
       <ListShow state={userState} />
       {
+        addStatus
+        ? <AddBox add={addUser} />
+        : ''
+      }
     </main>
   );
 }
