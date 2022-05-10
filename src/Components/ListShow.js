@@ -1,6 +1,9 @@
 import React, {useState} from "react";
 import './ListShow.css';
 
+// Components
+import Users from "./Users";
+
 function ListShow() {
 
     const [state, setState] = useState({
