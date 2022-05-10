@@ -6,9 +6,9 @@ import Input from './Input';
 
 function AddBox(props) {
 
-    const [userState, setUserState] = useState({user:{}})
+    const [userState, setUserState] = useState({user:[]});
 
-    // users : {
+    // user : {
     //     name : user.name,
     //     lastName : user.lastName,
     //     permission : user.permission,
@@ -18,6 +18,29 @@ function AddBox(props) {
     //     skill : user.skill,
     //     detail : user.detail
     //   }
+
+
+    //Handlers
+    let inputHandler = (e) => {
+        e.preventDefault();
+        let [inputName, inputValue] = [e.target.name,e.target.value];
+        
+        setUserState(prevState => {
+            return {
+                user : {...prevState.user, 
+                    [inputName] : inputValue
+                }
+            }
+        });
+    }
+    //get name and value of input and add it to UserState
+
+    
+    let formHandler = (e) => {
+        e.preventDefault();
+        props.add(userState.user);
+        setUserState('');
+    }
 
     return (
         <div className="wrap">
@@ -54,8 +77,8 @@ function AddBox(props) {
                             <input className="radio" type="radio" name="permission" id="user" value="user" />
                             <label for="user">کاربر</label>
                     </div>
-                </form>
                     <button className="sub-btn" type="submit">ثبت</button>
+                </form>
             </div>
         </div>
     )
