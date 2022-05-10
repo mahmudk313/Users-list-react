@@ -55,6 +55,10 @@ function App() {
     setAddStatus(status)
   }
 
+  let as = (e) =>
+  {
+    setAddStatus(e)
+  }
 
   return (
     <main> 
@@ -65,7 +69,7 @@ function App() {
       </div>
       {
         addStatus
-        ? <AddBox add={addUser} />
+        ? <AddBox addStatus={addStatusToggle} add={addUser} />
         : ''
       }
     </main>
