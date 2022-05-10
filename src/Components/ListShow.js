@@ -1,26 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import './ListShow.css';
 
 // Components
 import Users from "./Users";
 
-function ListShow() {
-
-    const [state, setState] = useState({
-        users : [
-            // State.users Props
-            // {
-            //     name : 'mahmud',
-            //     lastName : 'bak',
-            //     permission : 'admin',
-            //     joinDate : '1400',
-            //     email : 'mkm',
-            //     id : 1,
-            //     skill : 1,
-            //     detail : 1
-            // }
-        ]
-    });
+function ListShow(props) {
+    //satate defined in app.js component so we have access to it from the props
+    let {state} = props
 
 
     return(
@@ -37,7 +23,7 @@ function ListShow() {
                         <th>مهارت</th>
                         <th>توضیحات</th>
                     </tr>
-                    
+                    {/* if there are no users a message will be displayed otherwise Users component called */}
                     {
                         state.users.length === 0 
                             ? <h2>کاربری اضافه نشده است!</h2>
