@@ -5,7 +5,6 @@ import './AddBox.css';
 import Input from './Input';
 
 function AddBox(props) {
-
     const [userState, setUserState] = useState({user:[]});
 
     // user : {
@@ -39,7 +38,9 @@ function AddBox(props) {
     let formHandler = (e) => {
         e.preventDefault();
         props.add(userState.user);
-        setUserState('');
+        props.addStatus(false);
+        
+        
     }
 
     return (
