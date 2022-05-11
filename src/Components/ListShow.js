@@ -26,8 +26,8 @@ function ListShow(props) {
                     {/* if there are no users a message will be displayed otherwise Users component called */}
                     {
                         state.users.length === 0 
-                            ? <h2>کاربری اضافه نشده است!</h2>
-                            : state.users.map(item => <Users key={item.id} usersList={item} /> )
+                            ? <tr>کاربری تعریف نشده است</tr>
+                            : state.users.map(item => <Users key={item.key} usersList={item} /> )
                     }
                 </tbody>
             </table>
