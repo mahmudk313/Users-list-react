@@ -41,9 +41,33 @@ form label{
 }
 
 .sub-btn{
+    border-radius: 5px;
     position: absolute;
-    width: 200px;
+    width: 100px;
     height: 35px;
     left: 90px;
     bottom: 40px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.sub-btn:hover{
+    background-color: rgba(33, 189, 33, 0.753);
+}
+.exit-btn{
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    width: 100px;
+    height: 35px;
+    left: 200px;
+    bottom: 40px;
+    color: red;
+    background-color: #fff;
+    border-color: red;
+}
+.exit-btn:hover{
+    background-color: red;
+    color: #fff;
 }

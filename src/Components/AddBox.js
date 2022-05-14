@@ -3,6 +3,7 @@ import './AddBox.css';
 
 //Components
 import Input from './Input';
+import RadioInput from './RadioInput';
 
 function AddBox(props) {
     const [userState, setUserState] = useState({user:[]});
@@ -31,9 +32,10 @@ function AddBox(props) {
                 }
             }
         });
+
+        
     }
     //get name and value of input and add it to UserState
-
     
     let formHandler = (e) => {
         e.preventDefault();
@@ -72,14 +74,12 @@ function AddBox(props) {
                         <label for="skill">مهارت:</label><br/>
                         <input className="form-input" type="text" name="skill" id="skill" /><br/> */}
                         
-                            <label for="permission">دسترسی:</label><br/>
-                            <input className="radio" type="radio" name="permission" id="admin" value="admin" />
-                            <label for="admin">مدیر</label>
-                            <input className="radio" type="radio" name="permission" id="user" value="user" />
-                            <label for="user">کاربر</label>
+                        <RadioInput onChange={inputHandler} />
                     </div>
                     <button className="sub-btn" type="submit">ثبت</button>
+                    <button className="exit-btn" type="button" onClick={() => props.addStatus(false)}>خروج</button>
                 </form>
+                
             </div>
         </div>
     )
