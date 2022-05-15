@@ -55,11 +55,6 @@ function App() {
     setAddStatus(status)
   }
 
-  let as = (e) =>
-  {
-    setAddStatus(e)
-  }
-
   return (
     <main> 
       <div className={addStatus?"blur":""}>

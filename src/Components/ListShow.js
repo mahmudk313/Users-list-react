@@ -21,7 +21,7 @@ function ListShow(props) {
                         <th>ایمیل</th>
                         <th>شناسه</th>
                         <th>مهارت</th>
-                        <th>توضیحات</th>
+                        <th>ابزار</th>
                     </tr>
                     {/* if there are no users a message will be displayed otherwise Users component called */}
                     {

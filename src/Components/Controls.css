@@ -37,3 +37,10 @@
     background-size: 50%;
     background-repeat: no-repeat;
 }
+.users-ctrl-btn{
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    border: 1px solid #999;
+    visibility: hidden;
+}

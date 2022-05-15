@@ -12,9 +12,7 @@
 table{
     width: 100%;
 }
-.list-show tr{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+.list-show td,th{
+    text-align: center;
     padding: 10px;
 }
