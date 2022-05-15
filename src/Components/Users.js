@@ -1,11 +1,13 @@
+import {useState} from 'react';
 
+function Users(props) {
+    let {usersList} = props;
 
-function Users(user) {
-    let {usersList} = user;
+    const [mouseState, setMouseState] = useState(false)
     
     return(
         <>
-            <tr>
+            <tr onMouseEnter={()=>setMouseState(true)} onMouseLeave={()=>setMouseState(false)} >
                 <td>{usersList.name}</td>
                 <td>{usersList.lastName}</td>
                 <td>{usersList.permission}</td>
@@ -13,7 +15,14 @@ function Users(user) {
                 <td>{usersList.email}</td>
                 <td>{usersList.id}</td>
                 <td>{usersList.skill}</td>
-                <td>{usersList.dtail}</td>
+                <td>
+                    <button 
+                        className={`sq-btn users-ctrl-btn delete-btn ${mouseState ? "visible" : ""}`}
+                        type="button"
+                        onClick={()=> props.delete(usersList.key)}
+                        >
+                    </button>
+                </td>
             </tr>
         </>
     )

@@ -27,7 +27,10 @@ function ListShow(props) {
                     {
                         state.users.length === 0 
                             ? <tr>کاربری تعریف نشده است</tr>
-                            : state.users.map(item => <Users key={item.key} usersList={item} /> )
+                            : state.users.map(item => <Users 
+                                key={item.key} 
+                                usersList={item} 
+                                delete={props.delete} /> )
                     }
                 </tbody>
             </table>

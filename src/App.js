@@ -57,6 +57,15 @@ function App() {
     setAddStatus(status)
   }
 
+  let deleteUser = key => {
+    setUsersState(prevState=> {
+      return{
+        ...prevState,
+        users : prevState.users.filter(item=> item.key !== key)
+      }
+    })
+  }
+
   let listShowToggle = e => {
     setUsersState(prevState=> {
       return {
@@ -69,13 +78,20 @@ function App() {
   return (
     <main> 
       <div className={addStatus?"blur":""}>
-        <Controls addStatus={addStatusToggle} />
-        <ListShow state={usersState} />
-
+        <Controls addStatus={addStatusToggle} listShowToggle={listShowToggle} />
+        {
+          usersState.usersListStatus
+          ? <ListShow
+           state={usersState} 
+           delete={deleteUser} />
+          : ''
+        }
       </div>
       {
         addStatus
-        ? <AddBox addStatus={addStatusToggle} add={addUser} />
+        ? <AddBox
+         addStatus={addStatusToggle} 
+         add={addUser} />
         : ''
       }
     </main>
