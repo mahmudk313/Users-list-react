@@ -23,7 +23,8 @@ function App() {
         //     skill : 1,
         //     detail : 1
         // }
-    ]
+    ],
+  usersListStatus : true
   });
 
 
@@ -32,6 +33,7 @@ function App() {
     setUsersState(prevState => {
       console.log(user)
       return {
+        ...prevState,
         users : [
           ...prevState.users,
           {
@@ -51,8 +53,17 @@ function App() {
   }
 
   //changes the addStatus, get value from Controls component -> add Button
-  let addStatusToggle = status => {
+  const addStatusToggle = status => {
     setAddStatus(status)
+  }
+
+  let listShowToggle = e => {
+    setUsersState(prevState=> {
+      return {
+        ...prevState,
+        usersListStatus : !prevState.usersListStatus
+      }
+    })
   }
 
   return (
