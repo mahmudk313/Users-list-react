@@ -17,6 +17,12 @@ function Users(props) {
                 <td>{usersList.skill}</td>
                 <td>
                     <button 
+                        className={`sq-btn users-ctrl-btn edit-btn ${mouseState ? "visible" : ""}`}
+                        type="button"
+                        >
+                    </button>
+
+                    <button 
                         className={`sq-btn users-ctrl-btn delete-btn ${mouseState ? "visible" : ""}`}
                         type="button"
                         onClick={()=> props.delete(usersList.key)}
