@@ -11,22 +11,33 @@ function App() {
 
   const [addStatus, setAddStatus] = useState(false);
   const [usersState, setUsersState] = useState({
-    users : [
-        // State.users Props
-        // {
-        //     name : 'mahmud',
-        //     lastName : 'bak',
-        //     permission : 'admin',
-        //     joinDate : '1400',
-        //     email : 'mkm',
-        //     id : 1,
-        //     skill : 1,
-        //     detail : 1
-        // }
+    users: [
+      // State.users Props
+      // {
+      //     name : 'mahmud',
+      //     lastName : 'bak',
+      //     permission : 'admin',
+      //     joinDate : '1400',
+      //     email : 'mkm',
+      //     id : 1,
+      //     skill : 1,
+      //     detail : 1
+      // }
     ],
-  usersListStatus : true
+    usersListStatus: true
   });
 
+
+  const getCurrentDate = () => {
+    const today = new Date()
+    const options = {
+      year: 'numeric',
+      month: '2-digit',
+      day: 'numeric',
+    }
+    const now = today.toLocaleString('fa-IR', options)
+    return now
+  }
 
   //state changes here and get the props from AddBox component
   let addUser = (user) => {
@@ -34,18 +45,20 @@ function App() {
       console.log(user)
       return {
         ...prevState,
-        users : [
+        users: [
           ...prevState.users,
           {
-            name : user.name,
-            lastName : user.lastName,
-            permission : user.permission,
-            birthDate : user.birthDate,
-            email : user.email,
-            id : user.id,
-            skill : user.skill,
-            detail : user.detail,
-            key : Date.now()
+            name: user.name,
+            lastName: user.lastName,
+            permission: user.permission,
+            birthDate: user.birthDate,
+            email: user.email,
+            id: user.id,
+            skill: user.skill,
+            detail: user.detail,
+            key: Date.now(),
+            joinDate: getCurrentDate()
+
           }
         ]
       }
@@ -58,41 +71,41 @@ function App() {
   }
 
   let deleteUser = key => {
-    setUsersState(prevState=> {
-      return{
+    setUsersState(prevState => {
+      return {
         ...prevState,
-        users : prevState.users.filter(item=> item.key !== key)
+        users: prevState.users.filter(item => item.key !== key)
       }
     })
   }
 
   let listShowToggle = e => {
-    setUsersState(prevState=> {
+    setUsersState(prevState => {
       return {
         ...prevState,
-        usersListStatus : !prevState.usersListStatus
+        usersListStatus: !prevState.usersListStatus
       }
     })
   }
 
   return (
-    <main> 
-      <div className={addStatus?"blur":""}>
+    <main>
+      <div className={addStatus ? "blur" : ""}>
         <Controls addStatus={addStatusToggle} listShowToggle={listShowToggle} />
         {
           usersState.usersListStatus
-          ? <ListShow
-           state={usersState} 
-           delete={deleteUser} />
-          : ''
+            ? <ListShow
+              state={usersState}
+              delete={deleteUser} />
+            : ''
         }
       </div>
       {
         addStatus
-        ? <AddBox
-         addStatus={addStatusToggle} 
-         add={addUser} />
-        : ''
+          ? <AddBox
+            addStatus={addStatusToggle}
+            add={addUser} />
+          : ''
       }
     </main>
   );
