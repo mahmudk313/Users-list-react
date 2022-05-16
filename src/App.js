@@ -16,7 +16,7 @@ function App() {
 
   //state changes here and get the props from AddBox component
   let addUser = (user) => {
-    const date = new Date().toLocaleDateString("fa-IR");
+    const joinDate = new Date().toLocaleDateString("fa-IR");
     setUsersState((prevState) => {
       console.log(user);
       return {
@@ -33,7 +33,7 @@ function App() {
             skill: user.skill,
             detail: user.detail,
             key: Date.now(),
-            date: date,
+            joinDate: joinDate,
           },
         ],
       };

@@ -1,4 +1,3 @@
-import { useState } from "react"
 
 
 export default function RadioInput (props) {
@@ -12,9 +11,9 @@ export default function RadioInput (props) {
     return (
         <>
             <label htmlFor="permission">دسترسی:</label><br/>
-            <input className="radio" type="radio" name="permission" id="admin" value="admin" onChange={inputHandler}/>
+            <input className="radio" type="radio" name="permission" id="admin" value="مدیر" onChange={inputHandler}/>
             <label htmlFor="admin">مدیر</label>
-            <input className="radio" type="radio" name="permission" id="user" value="user"  onChange={inputHandler}/>
+            <input className="radio" type="radio" name="permission" id="user" value="کاربر"  onChange={inputHandler}/>
             <label htmlFor="user">کاربر</label>
         </>
     )

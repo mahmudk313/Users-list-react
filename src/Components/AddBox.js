@@ -53,13 +53,6 @@ function AddBox(props) {
                         <Input labelName="نام:" type="text" id="name" onChange={inputHandler} />
                         <Input labelName="تاریخ تولد:" type="text" id="birthDate" onChange={inputHandler} />
                         <Input labelName="کد ملی:" type="text" id="id" onChange={inputHandler} />
-                        {/* <label for="f-name">نام:</label><br/>
-                        <input className="form-input" type="text" name="fname" id="f-name" onChange={nameHandler} /><br/>
-                        <label for="b-date">تاریخ تولد:</label><br/>
-                        <input className="form-input" type="text" name="b-date" id="b-date" /><br/>
-                        <label for="id">کد ملی:</label><br/>
-                        <input className="form-input" type="number" name="id" id="id" /><br/> */}
-                        
                     </div>
 
                     <div className="left-side">
@@ -67,13 +60,6 @@ function AddBox(props) {
                         <Input labelName="ایمیل:" type="text" id="email" onChange={inputHandler} />
                         <Input labelName="مهارت:" type="text" id="skill" onChange={inputHandler} />
 
-                        {/* <label for="l-name">نام خانوادگی:</label><br/>
-                        <input className="form-input" type="text" name="l-name" id="l-name" /><br/>
-                        <label for="email">ایمیل:</label><br/>
-                        <input className="form-input" type="text" name="email" id="email" /><br/>
-                        <label for="skill">مهارت:</label><br/>
-                        <input className="form-input" type="text" name="skill" id="skill" /><br/> */}
-                        
                         <RadioInput onChange={inputHandler} />
                     </div>
                     <button className="sub-btn" type="submit">ثبت</button>
