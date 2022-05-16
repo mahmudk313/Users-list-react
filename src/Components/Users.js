@@ -11,7 +11,7 @@ function Users(props) {
                 <td>{usersList.name}</td>
                 <td>{usersList.lastName}</td>
                 <td>{usersList.permission}</td>
-                <td>{usersList.joinDate}</td>
+                <td>{usersList.date}</td>
                 <td>{usersList.email}</td>
                 <td>{usersList.id}</td>
                 <td>{usersList.skill}</td>
