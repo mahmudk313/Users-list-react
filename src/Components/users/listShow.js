@@ -5,10 +5,6 @@ import './style/ListShow.css';
 import Users from "./users";
 
 function ListShow(props) {
-    //satate defined in app.js component so we have access to it from the props
-    let { state } = props;
-
-
     return (
         <div className="list-show">
             <table>
@@ -25,12 +21,15 @@ function ListShow(props) {
                     </tr>
                     {/* if there are no users a message will be displayed otherwise Users component called */}
                     {
-                        state.users.length === 0
-                            ? <tr>کاربری تعریف نشده است</tr>
-                            : state.users.map(item => <Users
+                        props.users.length > 0
+                            ? props.users.map(item => <Users
                                 key={item.key}
                                 usersList={item}
-                                delete={props.delete} />)
+                                delete={props.delete}
+                                edit={props.edit}
+                            />)
+                            : <tr><td>کاربری تعریف نشده است </td></tr>
+
                     }
                 </tbody>
             </table>
