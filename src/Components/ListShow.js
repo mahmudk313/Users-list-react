@@ -30,7 +30,8 @@ function ListShow(props) {
                             : state.users.map(item => <Users 
                                 key={item.key} 
                                 usersList={item} 
-                                delete={props.delete} /> )
+                                delete={props.delete}
+                                edit={props.edit} /> )
                     }
                 </tbody>
             </table>
