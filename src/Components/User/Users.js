@@ -1,16 +1,21 @@
-import {useState} from 'react';
-import EditUser from './EditUser';
+import {useState} from "react";
+import EditUser from "./EditUser";
+import Alert from "../Layout/Alert";
 
 function Users(props) {
     let {usersList} = props;
 
-    const [mouseState, setMouseState] = useState(false)
+    const [mouseState, setMouseState] = useState(false);
     const [edit, setEdit] = useState(false);
-
+    const [show, setShow] = useState(false);
 
     let editHandler = (user) => {
         props.edit(user);
         setEdit(false)
+    }
+
+    let showToggler = (e) => {
+        setShow(!show);
     }
     return(
         <>
@@ -36,7 +41,6 @@ function Users(props) {
                                 <button 
                                     className={`sq-btn users-ctrl-btn delete-btn ${mouseState ? "visible" : ""}`}
                                     type="button"
-                                    onClick={()=> props.delete(usersList.key)}
                                     >
                                 </button>
                             </td>
