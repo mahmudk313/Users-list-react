@@ -1,53 +1,54 @@
-.controls{
-    height: 150px;
-    margin-left: 15px;
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.controls {
+  height: 150px;
+  margin-left: 15px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.sq-btn{
-    width: 45px;
-    height: 45px;
-    border-radius: 5px;
-    background-color: rgb(255, 255, 255);
+.sq-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  z-index: 9999;
 }
-.sq-btn:hover{
-    cursor: pointer;
-    border-color: #bb0189e1;
+.sq-btn:hover {
+  cursor: pointer;
+  border-color: #bb0189e1;
 }
-.add-btn{
-    background-image: url(./../Icons/Plus\ Math.svg);
-    background-position: center;
-    background-size: cover;
-    background-size: 50%;
-    background-repeat: no-repeat;
+.add-btn {
+  background-image: url(./../Icons/Plus\ Math.svg);
+  background-position: center;
+  background-size: cover;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
-.edit-btn{
-    background-image: url(./../Icons/Mode\ edit.svg);
-    background-position: center;
-    background-size: cover;
-    background-size: 50%;
-    background-repeat: no-repeat;
+.edit-btn {
+  background-image: url(./../Icons/Mode\ edit.svg);
+  background-position: center;
+  background-size: cover;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
-.list-btn{
-    background-image: url(./../Icons/Table\ chart.svg);
-    background-position: center;
-    background-size: cover;
-    background-size: 50%;
-    background-repeat: no-repeat;
+.list-btn {
+  background-image: url(./../Icons/Table\ chart.svg);
+  background-position: center;
+  background-size: cover;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
-.delete-btn{
-    background-image: url(./../Icons/Delete.svg);
-    background-position: center;
-    background-size: cover;
-    background-size: 50%;
-    background-repeat: no-repeat;
+.delete-btn {
+  background-image: url(./../Icons/Delete.svg);
+  background-position: center;
+  background-size: cover;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
-.users-ctrl-btn{
-    width: 25px;
-    height: 25px;
-    margin-right: 5px;
-    border: 1px solid #999;
-    visibility: hidden;
+.users-ctrl-btn {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  border: 1px solid #999;
+  visibility: hidden;
 }
