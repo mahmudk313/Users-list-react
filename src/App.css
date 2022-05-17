@@ -1,22 +1,22 @@
 @font-face {
   font-family: iransans;
-  src: url(font/FontsFree-Net-ir_sans.ttf);
+  src: url(./assets/fonts/FontsFree-Net-ir_sans.ttf);
 }
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: iransans;
 }
 
-.blur{
+.blur {
   filter: blur(5px);
   z-index: 1;
 }
 
 main {
-  background-image:  url(img/wallpapersden.com_huawei-4k-stock-abstract_3840x2160.jpg);
-  background-position:center ;
+  background-image: url(./assets/images/wallpapersden.com_huawei-4k-stock-abstract_3840x2160.jpg);
+  background-position: center;
   background-size: cover;
   width: 100%;
   height: auto;

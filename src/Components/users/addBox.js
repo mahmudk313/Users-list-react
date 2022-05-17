@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import './AddBox.css';
+import './style/AddBox.css';
 
 //Components
-import Input from './Input';
-import RadioInput from './RadioInput';
+import Input from './fields/formInput';
+import RadioInput from './fields/radioInput';
 
 function AddBox(props) {
-    const [userState, setUserState] = useState({user:[]});
+    const [userState, setUserState] = useState({ user: [] });
 
     // user : {
     //     name : user.name,
@@ -23,26 +23,27 @@ function AddBox(props) {
     //Handlers
     let inputHandler = (e) => {
         e.preventDefault();
-        let [inputName, inputValue] = [e.target.name,e.target.value];
-        
+        let [inputName, inputValue] = [e.target.name, e.target.value];
+
         setUserState(prevState => {
             return {
-                user : {...prevState.user, 
-                    [inputName] : inputValue
+                user: {
+                    ...prevState.user,
+                    [inputName]: inputValue
                 }
             }
         });
 
-        
+
     }
     //get name and value of input and add it to UserState
-    
+
     let formHandler = (e) => {
         e.preventDefault();
         props.add(userState.user);
         props.addStatus(false);
-        
-        
+
+
     }
 
     return (
@@ -59,7 +60,7 @@ function AddBox(props) {
                         <input className="form-input" type="text" name="b-date" id="b-date" /><br/>
                         <label for="id">کد ملی:</label><br/>
                         <input className="form-input" type="number" name="id" id="id" /><br/> */}
-                        
+
                     </div>
 
                     <div className="left-side">
@@ -73,13 +74,13 @@ function AddBox(props) {
                         <input className="form-input" type="text" name="email" id="email" /><br/>
                         <label for="skill">مهارت:</label><br/>
                         <input className="form-input" type="text" name="skill" id="skill" /><br/> */}
-                        
+
                         <RadioInput onChange={inputHandler} />
                     </div>
                     <button className="sub-btn" type="submit">ثبت</button>
                     <button className="exit-btn" type="button" onClick={() => props.addStatus(false)}>خروج</button>
                 </form>
-                
+
             </div>
         </div>
     )

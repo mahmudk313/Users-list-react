@@ -3,9 +3,9 @@ import { useState } from 'react';
 import './App.css';
 
 //import components
-import Controls from './Components/Controls';
-import ListShow from './Components/ListShow';
-import AddBox from './Components/AddBox'
+import Controls from './components/users/controls';
+import ListShow from './components/users/listShow';
+import AddBox from './components/users/addBox'
 
 function App() {
 
