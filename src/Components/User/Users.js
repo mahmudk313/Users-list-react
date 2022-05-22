@@ -1,6 +1,6 @@
-import {useState} from "react";
-import EditUser from "./EditUser";
-import Alert from "../Layout/Alert";
+import {useState} from 'react';
+import EditUser from './EditUser';
+import Alert from '../Layout/Alert';
 
 function Users(props) {
     let {usersList} = props;
@@ -41,6 +41,7 @@ function Users(props) {
                                 <button 
                                     className={`sq-btn users-ctrl-btn delete-btn ${mouseState ? "visible" : ""}`}
                                     type="button"
+                                    onClick={()=> props.delete(usersList.key) }
                                     >
                                 </button>
                             </td>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Input from "./Input";
+import Input from "./../Layout/Input";
 
 // This component called when we want to change the values of a user
 // This component use Input component and send a custom boolen attribute that activate edit inputs style

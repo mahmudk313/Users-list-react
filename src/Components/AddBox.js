@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import './AddBox.css';
+import { useState } from "react";
+import "./AddBox.css";
 
 //Components
-import Input from './Input';
-import RadioInput from './RadioInput';
+import Input from "./Layout/Input";
+import RadioInput from "./Layout/RadioInput";
 
 function AddBox(props) {
     const [userState, setUserState] = useState({user:[]});
@@ -52,7 +52,7 @@ function AddBox(props) {
                     <div className="right-side">
                         <Input labelName="نام:" type="text" id="name" onChange={inputHandler} />
                         <Input labelName="تاریخ تولد:" type="text" id="birthDate" onChange={inputHandler} />
-                        <Input labelName="کد ملی:" type="text" id="id" onChange={inputHandler} />
+                        <Input labelName="کد ملی:" type="text" id="personalId" onChange={inputHandler} />
                     </div>
 
                     <div className="left-side">
