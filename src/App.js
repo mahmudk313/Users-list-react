@@ -29,23 +29,22 @@ function App() {
         ]
       }
     })
-    console.log(list.data.data)
   }
   
-  //state changes here and get the props from AddBox component
+  //state changes here and get the props from AddBox component after successfuly sending data to API
   let addUser = async (user) => {
     const joinDate = new Date().toLocaleDateString("fa-IR");
     user.key = Date.now();
     user.joinDate = joinDate;
-    console.log(user)
+
     await axios.post(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList`, user)//sending to API is Okey
-      .then(res => 
+      .then(res =>
         setUsersState((prevState) => {
           return {
             ...prevState,
             users: [
               ...prevState.users,
-              user,
+              res.data.data,
             ],
           }
         })
@@ -59,29 +58,41 @@ function App() {
     setAddStatus(status);
   };
 
-  let deleteUser = (key) => {
-    setUsersState((prevState) => {
-      return {
-        ...prevState,
-        users: prevState.users.filter((item) => item.key !== key),
-      };
-    });
+  let deleteUser = async (id) => {
+    
+      await axios.delete(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList/${id}`)
+      setUsersState((prevState) => {
+        return {
+          ...prevState,
+          users: prevState.users.filter((item) => item.id !== id),
+        };
+      });
+    
   };
 
-  let editHandler = (user) => {
+  let editHandler = async (user) => {
     let {key} = user;
     let {users} = usersState;
     let newUsers = users.filter(item => item.key !== key);
+    
+      try {
+        await axios.put(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList/${user.id}`, {
+          ...user
+        })
+        setUsersState((prevState) => {
+          return {
+            ...prevState,
+            users : [
+              ...newUsers,
+              user
+            ]
+          }
+        })
 
-    setUsersState((prevState) => {
-      return {
-        ...prevState,
-        users : [
-          ...newUsers,
-          user
-        ]
+      } catch (e) {
+        console.log(e)
       }
-    })
+
   }
 
 
