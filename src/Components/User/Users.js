@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import EditUser from './EditUser';
-import Alert from '../Layout/Alert';
+// import Alert from '../Layout/Alert';
 
 function Users(props) {
     let {usersList} = props;
