@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-
 import "./App.css";
-
+import { useSelector, useDispatch } from "react-redux";
+import { addUser,getUsers } from "./store/Slices/UsersSlice";
 //import components
 import Controls from "./Components/Layout/Controls";
 import ListShow from "./Components/User/ListShow";
@@ -9,6 +9,8 @@ import AddBox from "./Components/AddBox";
 import axios from "axios";
 
 function App() {
+
+  const dispatch = useDispatch();
   const [addStatus, setAddStatus] = useState(false);
   const [usersState, setUsersState] = useState({
     users: [],
@@ -20,36 +22,26 @@ function App() {
   },[])
   
   const getUsersList = async () => {
-    let list = await axios.get(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList`)
-    setUsersState((prevstate)=>{
-      return {
-        ...prevstate,
-        users : [
-          ...list.data.data
-        ]
-      }
-    })
+    try{
+      let list = await axios.get(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList`)
+      dispatch(getUsers(list.data.data))
+    } catch (error) {
+      console.log(error)
+    }
   }
   
   //state changes here and get the props from AddBox component after successfuly sending data to API
-  let addUser = async (user) => {
+  let addUsers = async (user) => {
     const joinDate = new Date().toLocaleDateString("fa-IR");
     user.key = Date.now();
     user.joinDate = joinDate;
 
-    await axios.post(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList`, user)//sending to API is Okey
-      .then(res =>
-        setUsersState((prevState) => {
-          return {
-            ...prevState,
-            users: [
-              ...prevState.users,
-              res.data.data,
-            ],
-          }
-        })
-      )
-      .catch(error=> console.log(error))
+    try {
+      let res = await axios.post(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList`, user)
+      dispatch(addUser(res.data.data))
+    } catch(error) {
+      console.log(error)
+    }
     
   };
 
@@ -70,30 +62,6 @@ function App() {
     
   };
 
-  let editHandler = async (user) => {
-    let {key} = user;
-    let {users} = usersState;
-    let newUsers = users.filter(item => item.key !== key);
-    
-      try {
-        await axios.put(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList/${user.id}`, {
-          ...user
-        })
-        setUsersState((prevState) => {
-          return {
-            ...prevState,
-            users : [
-              ...newUsers,
-              user
-            ]
-          }
-        })
-
-      } catch (e) {
-        console.log(e)
-      }
-
-  }
 
 
   let listShowToggle = (e) => {
@@ -111,12 +79,12 @@ function App() {
         <Controls addStatus={addStatusToggle} listShowToggle={listShowToggle} />
 
         {usersState.usersListStatus ? (
-          <ListShow state={usersState} delete={deleteUser} edit={editHandler} />
+          <ListShow state={usersState} delete={deleteUser} />
         ) : (
           ""
         )}
       </div>
-      {addStatus ? <AddBox addStatus={addStatusToggle} add={addUser} /> : ""}
+      {addStatus ? <AddBox addStatus={addStatusToggle} add={addUsers} /> : ""}
     </main>
   );
 }

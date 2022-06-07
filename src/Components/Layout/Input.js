@@ -3,7 +3,6 @@ function Input(props) {
     let {labelName, id, type, edit} = props;
     if (edit === undefined)
         edit = false;
-    
     return(
         <>
             {

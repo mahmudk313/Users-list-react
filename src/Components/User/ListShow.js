@@ -1,14 +1,13 @@
 import React from "react";
 import "./ListShow.css";
-
+import { useSelector } from "react-redux";
 // Components
 import Users from "./Users";
 
 function ListShow(props) {
-    //satate defined in app.js component so we have access to it from the props
-    let {state} = props;
-
-
+    //state defined in app.js component so we have access to it from the props
+    // let {state} = props;
+    const users = useSelector((state) => state.users.users)
     return(
         <div className="list-show">
             <table>
@@ -25,13 +24,13 @@ function ListShow(props) {
                     </tr>
                     {/* if there are no users a message will be displayed otherwise Users component called */}
                     {
-                        state.users.length === 0 
+                        users.length === 0 
                             ? <tr>کاربری تعریف نشده است</tr>
-                            : state.users.map(item => <Users 
+                            : users.map(item => <Users 
                                 key={item.key} 
-                                usersList={item} 
+                                user={item} 
                                 delete={props.delete}
-                                edit={props.edit} /> )
+                                /> )
                     }
                 </tbody>
             </table>
