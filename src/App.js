@@ -50,19 +50,6 @@ function App() {
     setAddStatus(status);
   };
 
-  let deleteUser = async (id) => {
-    try {
-      let res = await axios.delete(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList/${id}`)
-      console.log(res)
-      dispatch(deleteUsers(id))
-    } catch (e) {
-      console.log(e)
-    }
-    
-  };
-
-
-
   let listShowToggle = (e) => {
     setUsersState((prevState) => {
       return {
@@ -78,7 +65,7 @@ function App() {
         <Controls addStatus={addStatusToggle} listShowToggle={listShowToggle} />
 
         {usersState.usersListStatus ? (
-          <ListShow state={usersState} delete={deleteUser} />
+          <ListShow state={usersState} />
         ) : (
           ""
         )}

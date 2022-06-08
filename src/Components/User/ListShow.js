@@ -33,7 +33,6 @@ function ListShow(props) {
                             : users.map(item => <Users 
                                 key={item.key} 
                                 user={item} 
-                                delete={props.delete}
                                 /> )
                     }
                 </tbody>

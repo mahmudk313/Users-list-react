@@ -23,7 +23,6 @@ function Edit (props) {
                 ...user
             })
             updatedUsers.push(updatedUser.data.data)
-            console.log(updatedUsers)
             dispatch(updateUser(updatedUsers))
             props.edit()
         } catch (e) {
@@ -35,9 +34,7 @@ function Edit (props) {
     let inputHandler = (e) => {
         e.preventDefault();
         let [inputName, inputValue] = [e.target.name,e.target.value];
-        console.log(e)
         setUserState(prevState => {
-            console.log(prevState)
             return {
                 ...prevState, 
                 [inputName] : inputValue
@@ -67,7 +64,7 @@ function Edit (props) {
                     <button 
                         className="sq-btn users-ctrl-btn delete-btn visible"
                         type="button"
-                        onClick={()=> props.delete(user.key)}
+                        onClick={()=> props.delete(user.id)}
                         >
                     </button>
                 </td>

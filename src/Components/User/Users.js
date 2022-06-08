@@ -2,8 +2,13 @@ import {useState} from 'react';
 import EditUser from './EditUser';
 import Alert from '../Layout/Alert';
 
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { deleteUser } from "./../../store/Slices/UsersSlice"
+
 function Users(props) {
     let {user} = props;
+    const dispatch = useDispatch(); 
 
     const [mouseState, setMouseState] = useState(false);
     const [edit, setEdit] = useState(false);
@@ -16,6 +21,17 @@ function Users(props) {
     let showToggler = (e) => {
         setShow(!show);
     }
+
+    let deleteUsers = async (id) => {
+        try {
+            await axios.delete(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList/${id}`)
+            dispatch(deleteUser(id))
+        } catch (e) {
+            console.log(e)
+        }
+    };
+
+
     return(
         <>
             {
@@ -40,13 +56,14 @@ function Users(props) {
                                 <button 
                                     className={`sq-btn users-ctrl-btn delete-btn ${mouseState ? "visible" : ""}`}
                                     type="button"
-                                    onClick={()=> props.delete(user.id) }
+                                    onClick={()=> deleteUsers(user.id) }
                                     >
                                 </button>
                             </td>
                         </tr>
                     )
-                    : <EditUser user={user} delete={props.delete} edit={editStatus} />
+                    : <EditUser user={user} delete={deleteUsers} edit={editStatus} />
+                    // <Alert delete={props.delete} key={usersList.key} show={showToggler} />
                     
             }
         </>
