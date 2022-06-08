@@ -25,7 +25,11 @@ function ListShow(props) {
                     {/* if there are no users a message will be displayed otherwise Users component called */}
                     {
                         users.length === 0 
-                            ? <tr>کاربری تعریف نشده است</tr>
+                            ? <tr>
+                                <td>
+                                کاربری تعریف نشده است
+                                </td>
+                            </tr>
                             : users.map(item => <Users 
                                 key={item.key} 
                                 user={item} 

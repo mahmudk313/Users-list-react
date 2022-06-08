@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addUser,getUsers } from "./store/Slices/UsersSlice";
+import { addUser,getUsers, deleteUsers } from "./store/Slices/UsersSlice";
 //import components
 import Controls from "./Components/Layout/Controls";
 import ListShow from "./Components/User/ListShow";
@@ -51,14 +51,13 @@ function App() {
   };
 
   let deleteUser = async (id) => {
-    
-      await axios.delete(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList/${id}`)
-      setUsersState((prevState) => {
-        return {
-          ...prevState,
-          users: prevState.users.filter((item) => item.id !== id),
-        };
-      });
+    try {
+      let res = await axios.delete(`https://6287ab4260c111c3ead01bd8.endapi.io/usersList/${id}`)
+      console.log(res)
+      dispatch(deleteUsers(id))
+    } catch (e) {
+      console.log(e)
+    }
     
   };
 
