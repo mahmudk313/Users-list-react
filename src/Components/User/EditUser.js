@@ -4,7 +4,7 @@ import axios from "axios";
 
 //redux tools
 import { useSelector,useDispatch } from 'react-redux';
-import { updateUser } from "./../../store/Slices/UsersSlice"
+import { updateUser } from "../../store/slices/UsersSlice"
 
 // This component called when we want to change the values of a user
 // This component use Input component and send a custom boolen attribute that activate edit inputs style

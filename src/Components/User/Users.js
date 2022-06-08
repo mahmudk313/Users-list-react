@@ -4,7 +4,7 @@ import Alert from '../Layout/Alert';
 
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { deleteUser } from "./../../store/Slices/UsersSlice"
+import { deleteUser } from "../../store/slices/UsersSlice"
 
 function Users(props) {
     let {user} = props;

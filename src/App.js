@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
-import { addUser,getUsers, deleteUsers } from "./store/Slices/UsersSlice";
+import { useDispatch } from "react-redux";
+import { addUser,getUsers } from "./store/slices/UsersSlice";
 //import components
 import Controls from "./Components/Layout/Controls";
 import ListShow from "./Components/User/ListShow";
@@ -12,10 +12,7 @@ function App() {
 
   const dispatch = useDispatch();
   const [addStatus, setAddStatus] = useState(false);
-  const [usersState, setUsersState] = useState({
-    users: [],
-    usersListStatus: true,
-  });
+  const [usersListStatus, setUsersListStatus] = useState(true);
 
   useEffect(() => {
     getUsersList();
@@ -51,12 +48,7 @@ function App() {
   };
 
   let listShowToggle = (e) => {
-    setUsersState((prevState) => {
-      return {
-        ...prevState,
-        usersListStatus: !prevState.usersListStatus,
-      };
-    });
+    setUsersListStatus(!usersListStatus);
   };
 
   return (
@@ -64,8 +56,8 @@ function App() {
       <div className={addStatus ? "blur" : ""}>
         <Controls addStatus={addStatusToggle} listShowToggle={listShowToggle} />
 
-        {usersState.usersListStatus ? (
-          <ListShow state={usersState} />
+        {usersListStatus ? (
+          <ListShow />
         ) : (
           ""
         )}
